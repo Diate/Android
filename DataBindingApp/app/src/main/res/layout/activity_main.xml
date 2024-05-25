@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="number"
+            type="com.example.databindingapp.Number" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:id="@+id/backgroundHeader"
+            android:layout_width="match_parent"
+            android:layout_height="200sp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/todo"
+            android:scaleType="centerCrop"
+            android:src="@drawable/background"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:textColorHint="#ffffff"
+            android:id="@+id/edta"
+            android:textColor="@color/white"
+            android:text="@={number.num1}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:hint="input a"
+            android:textSize="48sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/backgroundHeader"
+            tools:ignore="Autofill,HardcodedText,MissingConstraints,TextFields">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/edtb"
+            android:text="@={number.num2}"
+            android:textColorHint="#ffffff"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:hint="input b"
+            android:textSize="48sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edta"
+            tools:ignore="Autofill,HardcodedText,MissingConstraints,TextFields">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/edtc"
+            android:textColor="@color/white"
+            android:text="@={number.num3}"
+            android:textColorHint="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:hint="input c"
+            android:textSize="48sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtb"
+            tools:ignore="Autofill,HardcodedText,MissingConstraints,TextFields">
+
+        </EditText>
+
+        <Button
+            android:onClick="@{number::solveEquation}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Solve"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtc"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/tview"
+            android:textColor="@color/white"
+            android:hint="Anser here"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="135dp"
+            android:textSize="20sp"
+            android:text="@{number.num1 + number.num2 + number.num3}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtc"
+            tools:ignore="HardcodedText,MissingConstraints" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
